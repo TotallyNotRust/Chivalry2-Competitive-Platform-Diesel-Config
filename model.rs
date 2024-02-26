@@ -1,10 +1,12 @@
 use chrono::{Local, NaiveDateTime};
-use diesel::{prelude::Insertable, Associations, Identifiable, Queryable};
+use diesel::{prelude::Insertable, Associations, Identifiable, Queryable, Selectable};
 use serde::{Deserialize, Serialize};
 
 use crate::lib::database::schema::*;
 
-#[derive(Queryable, Insertable, Identifiable, Debug, PartialEq, Clone, Deserialize, Serialize)]
+#[derive(
+    Queryable, Eq, Insertable, Identifiable, Debug, PartialEq, Clone, Deserialize, Serialize,
+)]
 #[diesel(table_name = account)]
 pub struct Account {
     pub id: i32,
@@ -71,4 +73,12 @@ impl Token {
     pub fn is_expired(&self) -> bool {
         return self.valid_until.lt(&Local::now().naive_utc());
     }
+}
+
+#[derive(Queryable, Selectable, Debug, PartialEq, Clone, Deserialize, Serialize)]
+#[diesel(table_name = queue)]
+pub struct Queue {
+    pub id: i64,
+    pub gamemode: i16,
+    pub account_id: i32,
 }

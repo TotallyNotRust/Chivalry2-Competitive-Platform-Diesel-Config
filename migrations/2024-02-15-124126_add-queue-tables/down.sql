@@ -1,4 +1,4 @@
 -- This file should undo anything in `up.sql`
-drop table account_match;
-drop table c2_match;
-drop table queue;
+DROP TABLE IF EXISTS account_match;
+DROP TABLE IF EXISTS c2_match;
+DROP TABLE IF EXISTS queue;

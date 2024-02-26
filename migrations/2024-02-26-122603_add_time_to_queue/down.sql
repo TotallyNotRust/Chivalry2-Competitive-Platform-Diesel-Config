@@ -1,2 +1,2 @@
 -- This file should undo anything in `up.sql`
-DROP TABLE IF EXISTS tokens;
+ALTER TABLE queue DROP COLUMN start_datetime;

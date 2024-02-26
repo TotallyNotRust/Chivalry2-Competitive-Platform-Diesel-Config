@@ -1,5 +1,5 @@
 -- Your SQL goes here
-CREATE TABLE tokens (
+CREATE TABLE IF NOT EXISTS tokens (
     id int NOT NULL AUTO_INCREMENT,
     token VARCHAR(25) NOT NULL,
     account_id int NOT NULL,

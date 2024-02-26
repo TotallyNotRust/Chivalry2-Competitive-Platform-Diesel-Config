@@ -1,5 +1,5 @@
 -- Your SQL goes here
-CREATE TABLE queue (
+CREATE TABLE IF NOT EXISTS queue (
     id bigint not null AUTO_INCREMENT,
     gamemode smallint not null,
     account_id int not null,
@@ -7,13 +7,13 @@ CREATE TABLE queue (
     FOREIGN KEY (account_id) REFERENCES account(id)
 );
 
-CREATE TABLE c2_match (
+CREATE TABLE IF NOT EXISTS c2_match (
     id bigint not null AUTO_INCREMENT,
     gamemode smallint not null,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE account_match (
+CREATE TABLE IF NOT EXISTS account_match (
     id bigint not null AUTO_INCREMENT,
     match_id bigint not null,
     account_id int not null,

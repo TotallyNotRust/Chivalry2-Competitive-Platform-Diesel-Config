@@ -1,6 +1,6 @@
 -- Your SQL goes here
 -- If a user has recieved a punishment, such as a mute or ban, this will describe the punishment, and where to find evidence for it
-CREATE TABLE punishment (
+CREATE TABLE IF NOT EXISTS punishment (
     id INT NOT NULL AUTO_INCREMENT,
     type TINYINT(4) NOT NULL,
     end_date DATE,
@@ -9,7 +9,7 @@ CREATE TABLE punishment (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE account (
+CREATE TABLE IF NOT EXISTS account (
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(25) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE account (
     and i think its smarter to not need to update the entire account record.
     Its also possible i may want to expand the platform to have more games in the future,
     by having a seperate ranked info table, ill be able to have a record for each game the account plays */
-CREATE TABLE account_ranked_info (
+CREATE TABLE IF NOT EXISTS account_ranked_info (
     id INT NOT NULL AUTO_INCREMENT,
     account_id INT NOT NULL,
     standing INT NOT NULL DEFAULT 1500,
