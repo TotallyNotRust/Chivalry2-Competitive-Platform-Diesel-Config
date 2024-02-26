@@ -2,7 +2,7 @@ use chrono::{Local, NaiveDateTime};
 use diesel::{prelude::Insertable, Associations, Identifiable, Queryable};
 use serde::{Deserialize, Serialize};
 
-use crate::schema::*;
+use crate::lib::database::schema::*;
 
 #[derive(Queryable, Insertable, Identifiable, Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[diesel(table_name = account)]
