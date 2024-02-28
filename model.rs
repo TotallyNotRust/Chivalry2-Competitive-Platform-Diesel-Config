@@ -74,11 +74,3 @@ impl Token {
         return self.valid_until.lt(&Local::now().naive_utc());
     }
 }
-
-#[derive(Queryable, Selectable, Debug, PartialEq, Clone, Deserialize, Serialize)]
-#[diesel(table_name = queue)]
-pub struct Queue {
-    pub id: i64,
-    pub gamemode: i16,
-    pub account_id: i32,
-}
