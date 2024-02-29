@@ -76,13 +76,13 @@ impl Token {
 }
 
 #[derive(Queryable, Insertable, Debug, PartialEq, Clone, Deserialize, Serialize)]
-#[diesel(table_name = matches)]
+#[diesel(table_name = made_matches)]
 pub struct Match {
     pub id: i64,
     pub gamemode: i32,
 }
 #[derive(Queryable, Insertable, Debug, PartialEq, Clone, Deserialize, Serialize)]
-#[diesel(table_name = matches)]
+#[diesel(table_name = made_matches)]
 pub struct NewMatch {
     pub gamemode: i32,
 }

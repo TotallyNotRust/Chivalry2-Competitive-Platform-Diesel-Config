@@ -33,7 +33,7 @@ diesel::table! {
 }
 
 diesel::table! {
-    matches (id) {
+    made_matches (id) {
         id -> Bigint,
         gamemode -> Integer,
     }
@@ -87,6 +87,7 @@ diesel::allow_tables_to_appear_in_same_query!(
     account,
     account_ranked_info,
     chat,
+    made_matches,
     matches,
     punishment,
     room,
