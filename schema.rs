@@ -15,25 +15,10 @@ diesel::table! {
 }
 
 diesel::table! {
-    account_match (id) {
-        id -> Bigint,
-        match_id -> Bigint,
-        account_id -> Integer,
-    }
-}
-
-diesel::table! {
     account_ranked_info (id) {
         id -> Integer,
         account_id -> Integer,
         standing -> Integer,
-    }
-}
-
-diesel::table! {
-    c2_match (id) {
-        id -> Bigint,
-        gamemode -> Smallint,
     }
 }
 
@@ -48,6 +33,13 @@ diesel::table! {
 }
 
 diesel::table! {
+    matches (id) {
+        id -> Bigint,
+        gamemode -> Integer,
+    }
+}
+
+diesel::table! {
     punishment (id) {
         id -> Integer,
         #[sql_name = "type"]
@@ -55,14 +47,6 @@ diesel::table! {
         end_date -> Nullable<Date>,
         #[max_length = 16]
         evidence_path -> Nullable<Varchar>,
-    }
-}
-
-diesel::table! {
-    queue (id) {
-        id -> Bigint,
-        gamemode -> Smallint,
-        account_id -> Integer,
     }
 }
 
@@ -92,24 +76,19 @@ diesel::table! {
 }
 
 diesel::joinable!(account -> punishment (punishment_id));
-diesel::joinable!(account_match -> account (account_id));
-diesel::joinable!(account_match -> c2_match (match_id));
 diesel::joinable!(account_ranked_info -> account (account_id));
 diesel::joinable!(chat -> account (sent_by_id));
 diesel::joinable!(chat -> room (room_id));
-diesel::joinable!(queue -> account (account_id));
 diesel::joinable!(room_access -> account (account_id));
 diesel::joinable!(room_access -> room (room_id));
 diesel::joinable!(tokens -> account (account_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
     account,
-    account_match,
     account_ranked_info,
-    c2_match,
     chat,
+    matches,
     punishment,
-    queue,
     room,
     room_access,
     tokens,

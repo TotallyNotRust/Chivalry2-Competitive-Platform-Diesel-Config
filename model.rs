@@ -74,3 +74,15 @@ impl Token {
         return self.valid_until.lt(&Local::now().naive_utc());
     }
 }
+
+#[derive(Queryable, Insertable, Debug, PartialEq, Clone, Deserialize, Serialize)]
+#[diesel(table_name = matches)]
+pub struct Match {
+    pub id: i64,
+    pub gamemode: i32,
+}
+#[derive(Queryable, Insertable, Debug, PartialEq, Clone, Deserialize, Serialize)]
+#[diesel(table_name = matches)]
+pub struct NewMatch {
+    pub gamemode: i32,
+}
