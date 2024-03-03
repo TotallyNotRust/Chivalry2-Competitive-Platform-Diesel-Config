@@ -11,9 +11,13 @@ use crate::lib::database::schema::*;
 pub struct Account {
     pub id: i32,
     pub username: String,
+    #[serde(skip_serializing)]
     pub email: String,
+    #[serde(skip_serializing)]
     pub salted_password: String,
+    #[serde(skip_serializing)]
     pub account_closed: bool,
+    #[serde(skip_serializing)]
     pub punishment_id: Option<i32>,
 }
 

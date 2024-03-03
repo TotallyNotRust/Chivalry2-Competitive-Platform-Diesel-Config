@@ -88,7 +88,6 @@ diesel::allow_tables_to_appear_in_same_query!(
     account_ranked_info,
     chat,
     made_matches,
-    matches,
     punishment,
     room,
     room_access,
